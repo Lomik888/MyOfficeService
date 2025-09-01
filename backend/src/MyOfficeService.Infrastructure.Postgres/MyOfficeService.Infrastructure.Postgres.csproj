@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyOfficeService.Application\MyOfficeService.Application.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.66"/>
+    <PackageReference Include="dbup-postgresql" Version="6.0.3"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Migrations\Scripts\0001-Create-Company-Table.sql" />
+    <EmbeddedResource Include="Migrations\Scripts\0001-Create-Company-Table.sql" />
+    <None Remove="Migrations\Scripts\0002-Create-Department-Table.sql" />
+    <EmbeddedResource Include="Migrations\Scripts\0002-Create-Department-Table.sql" />
+    <None Remove="Migrations\Scripts\0003-Create-Employee-Table.sql" />
+    <EmbeddedResource Include="Migrations\Scripts\0003-Create-Employee-Table.sql" />
+  </ItemGroup>
+
+</Project>

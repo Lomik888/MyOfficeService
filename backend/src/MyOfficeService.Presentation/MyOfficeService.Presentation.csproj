@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>becd1cb6-0a38-4214-8ba1-d67efbf8b737</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.10"/>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
+    <PackageReference Include="Serilog" Version="4.3.0"/>
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyOfficeService.Infrastructure.Postgres\MyOfficeService.Infrastructure.Postgres.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\.dockerignore">
+      <Link>.dockerignore</Link>
+    </Content>
+  </ItemGroup>
+
+</Project>
