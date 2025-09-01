@@ -1,0 +1,27 @@
+﻿services:
+  api:
+    image: myofficeservice.presentation
+    depends_on:
+      - psql
+    build:
+      context: .
+      dockerfile: src/MyOfficeService.Presentation/Dockerfile
+    environment:
+      Postgres_ConnectionString: "Server=psql;Port=5432;Database=office_service;Username=root;Password=root;"
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "8080:8080"
+  
+  psql:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
+
+volumes:
+  postgres-volume:
